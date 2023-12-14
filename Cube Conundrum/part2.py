@@ -13,6 +13,14 @@ def sum_cube(items, color):
     return True
 
 
+def multiply_cube(number):
+    return False
+
+
+def get_cube_power(set):
+    return False
+
+
 filename = "./input/puzzle.txt"
 filename_sample = "./input/sample_puzzle.txt"
 
@@ -27,12 +35,18 @@ somme_games = 0
 
 for items in content:
     game_number = re.search("\d+", items).group()
-    red_cubes = re.findall(red_pattern, items)
-    if sum_cube(red_cubes, "red"):
-        green_cube = re.findall(green_pattern, items)
-        if sum_cube(green_cube, "green"):
-            blue_cube = re.findall(blue_pattern, items)
-            if sum_cube(blue_cube, "blue"):
-                somme_games += int(game_number)
+    cube_set = items.split(":")[1].split(";")
+    cube_set[-1] = cube_set[-1].strip()
+    for element in cube_set:
+        get_cube_power(element)
 
-print(somme_games)
+    # red_cubes = re.findall(red_pattern, items)
+    # if sum_cube(red_cubes, "red"):
+    #     green_cube = re.findall(green_pattern, items)
+    #     if sum_cube(green_cube, "green"):
+    #         blue_cube = re.findall(blue_pattern, items)
+    #         if sum_cube(blue_cube, "blue"):
+    #             somme_games += int(game_number)
+    break
+
+# print(somme_games)
