@@ -51,6 +51,5 @@ for items in content:
     #             somme_games += int(game_number)
     break
 
-print("Bubul est quelqu'un de très très très ...")
 
 # print(somme_games)
