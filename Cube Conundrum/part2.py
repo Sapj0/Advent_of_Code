@@ -38,7 +38,9 @@ for items in content:
     cube_set = items.split(":")[1].split(";")
     cube_set[-1] = cube_set[-1].strip()
     for element in cube_set:
-        get_cube_power(element)
+        red = get_cube_power(element)
+        green = get_cube_power(element)
+        blue = get_cube_power(element)
 
     # red_cubes = re.findall(red_pattern, items)
     # if sum_cube(red_cubes, "red"):
