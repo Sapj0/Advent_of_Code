@@ -1,7 +1,5 @@
 import re
-from pathlib import Path
 
-# path = Path(__file__).parent / "../input/Trebuchet/puzzle.txt"
 filename = "./input/puzzle.txt"
 
 # Open the file and read its content.
