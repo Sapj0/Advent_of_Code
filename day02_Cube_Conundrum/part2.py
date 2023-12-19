@@ -18,13 +18,15 @@ def multiply_cube(number):
 
 
 def get_cube_power(set):
+    print(type(set))
+    print(set)
     return False
 
 
 filename = "./input/puzzle.txt"
 filename_sample = "./input/sample_puzzle.txt"
 
-with open(filename, "r") as f:
+with open(filename_sample, "r") as f:
     content = f.readlines()
 
 red_pattern = r'\d+ red'
@@ -39,9 +41,8 @@ for items in content:
     cube_set[-1] = cube_set[-1].strip()
     for element in cube_set:
         red = get_cube_power(element)
-        green = get_cube_power(element)
-        blue = get_cube_power(element)
-
+        # green = get_cube_power(element)
+        # blue = get_cube_power(element)
     # red_cubes = re.findall(red_pattern, items)
     # if sum_cube(red_cubes, "red"):
     #     green_cube = re.findall(green_pattern, items)
