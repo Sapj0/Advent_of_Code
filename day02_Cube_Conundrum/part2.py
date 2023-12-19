@@ -48,8 +48,8 @@ def get_sum_games(content):
     return answer
 
 
-filename = "./input/puzzle.txt"
-filename_sample = "./input/sample_puzzle.txt"
+filename = "./day02_Cube_Conundrum/input/puzzle.txt"
+filename_sample = "./day02_Cube_Conundrum/input/sample_puzzle.txt"
 
 red_pattern = r'\d+ red'
 green_pattern = r'\d+ green'

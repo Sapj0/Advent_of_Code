@@ -37,8 +37,8 @@ def get_games_sum(content):
     return games_sum
 
 
-filename = "./input/puzzle.txt"
-filename_sample = "./input/sample_puzzle.txt"
+filename = "./day02_Cube_Conundrum/input/puzzle.txt"
+filename_sample = "./day02_Cube_Conundrum/input/sample_puzzle.txt"
 
 content = get_content_puzzle(filename)
 answer = get_games_sum(content)

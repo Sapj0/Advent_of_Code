@@ -1,6 +1,6 @@
 import re
 
-filename = "./input/puzzle.txt"
+filename = "./day01_Trebuchet/input/puzzle.txt"
 
 # Open the file and read its content.
 with open(filename, "r") as f:
@@ -14,5 +14,5 @@ for items in content:
     number = re.findall("\d", items)
     str_somme = number[0]+number[len(number)-1]
     somme += int(str_somme)
-    print(str_somme)
-    print(somme)
+    
+print(somme)

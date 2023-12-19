@@ -1,6 +1,6 @@
 import re
 
-filename = "./input/puzzle.txt"
+filename = "./day01_Trebuchet/input/puzzle.txt"
 
 # Open the file and read its content.
 with open(filename, "r") as f:
