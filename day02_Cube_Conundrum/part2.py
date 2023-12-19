@@ -1,56 +1,60 @@
 import re
 
 
-def sum_cube(items, color):
-    for elem in items:
-        cube_number = int(re.search("\d+", elem).group())
-        if "red" in color and cube_number > 12:
-            return False
-        if "green" in color and cube_number > 13:
-            return False
-        if "blue" in color and cube_number > 14:
-            return False
-    return True
+def get_power_set(red_max, green_max, blue_max):
+    return int(red_max)*int(green_max)*int(blue_max)
 
 
-def multiply_cube(number):
-    return False
+def get_cube_number(set, color):
+    if "red" in color:
+        try:
+            return int(re.search(red_pattern, set).group().split(" ")[0])
+        except:
+            return 0
+    if "green" in color:
+        try:
+            return int(re.search(green_pattern, set).group().split(" ")[0])
+        except:
+            return 0
+    if "blue" in color:
+        try:
+            return int(re.search(blue_pattern, set).group().split(" ")[0])
+        except:
+            return 0
+    return 0
 
 
-def get_cube_power(set):
-    print(type(set))
-    print(set)
-    return False
+def get_content_puzzle(file_path):
+    with open(file_path, "r") as f:
+        content = f.readlines()
+    return content
+
+
+def get_sum_games(content):
+    answer = 0
+    for items in content:
+        game_number = re.search("\d+", items).group()
+        cube_set = items.split(":")[1].split(";")
+        red, green, blue = 0, 0, 0
+        for element in cube_set:
+            element = element.strip()
+            if get_cube_number(element, "red") >= red:
+                red = get_cube_number(element, "red")
+            if get_cube_number(element, "green") >= green:
+                green = get_cube_number(element, "green")
+            if get_cube_number(element, "blue") >= blue:
+                blue = get_cube_number(element, "blue")
+        answer += get_power_set(red, green, blue)
+    return answer
 
 
 filename = "./input/puzzle.txt"
 filename_sample = "./input/sample_puzzle.txt"
 
-with open(filename_sample, "r") as f:
-    content = f.readlines()
-
 red_pattern = r'\d+ red'
 green_pattern = r'\d+ green'
 blue_pattern = r'\d+ blue'
 
-somme_games = 0
-
-for items in content:
-    game_number = re.search("\d+", items).group()
-    cube_set = items.split(":")[1].split(";")
-    cube_set[-1] = cube_set[-1].strip()
-    for element in cube_set:
-        red = get_cube_power(element)
-        # green = get_cube_power(element)
-        # blue = get_cube_power(element)
-    # red_cubes = re.findall(red_pattern, items)
-    # if sum_cube(red_cubes, "red"):
-    #     green_cube = re.findall(green_pattern, items)
-    #     if sum_cube(green_cube, "green"):
-    #         blue_cube = re.findall(blue_pattern, items)
-    #         if sum_cube(blue_cube, "blue"):
-    #             somme_games += int(game_number)
-    break
-
-
-# print(somme_games)
+content = get_content_puzzle(filename)
+answer = get_sum_games(content)
+print(answer)
